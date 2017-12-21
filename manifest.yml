@@ -13,10 +13,10 @@ applications:
   routes:
     - route: album-service-eric.apps.cumuluslabs.io
   env:
-    S3_ACCESSKEY: AKIAJVKLPV4RFOBRI3XA
-    S3_BUCKETNAME: cf-d17fa619-2d0f-47d6-8631-6be499dd5745
+    S3_ACCESSKEY: AKIAIETMWU7SIVQEXNBA
+    S3_BUCKETNAME: cf-111ce2da-75ae-4da7-846c-7dd44c9dd520
     S3_ENDPOINTURL: http://s3.amazonaws.com
-    S3_SECRETKEY: 0+30tc+3ddlmHYHWzNBalH1E6qPzxnV6W6d1Bya4
+    S3_SECRETKEY: fj8dgIGlf9RuVXiJU5ok33tF0QCfwlCKLZLXT+by
     GRANT_TYPE: client_credentials
 - name: movie-service
   path: applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
@@ -31,8 +31,8 @@ applications:
   routes:
     - route: movie-fun-app-eric.apps.cumuluslabs.io
   env:
-    S3_ACCESSKEY: AKIAJVKLPV4RFOBRI3XA
-    S3_BUCKETNAME: cf-d17fa619-2d0f-47d6-8631-6be499dd5745
+    S3_ACCESSKEY: AKIAIETMWU7SIVQEXNBA
+    S3_BUCKETNAME: cf-111ce2da-75ae-4da7-846c-7dd44c9dd520
     S3_ENDPOINTURL: http://s3.amazonaws.com
-    S3_SECRETKEY: 0+30tc+3ddlmHYHWzNBalH1E6qPzxnV6W6d1Bya4
+    S3_SECRETKEY: fj8dgIGlf9RuVXiJU5ok33tF0QCfwlCKLZLXT+by
     GRANT_TYPE: client_credentials
