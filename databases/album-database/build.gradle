@@ -19,6 +19,25 @@ flyway {
     outOfOrder = false
 }
 
+def waitUntilSocketIsOpen(port) {
+    def attempts = 0
+    def open = false
+
+
+    while (!open && attempts <= 20) {
+        try {
+            def socket = new Socket("localhost", port)
+            open = true
+        } catch (IOException e) {
+            attempts += 1
+            Thread.sleep(200)
+        }
+        if (attempts > 20) {
+            throw GradleException("Timed out waiting for SSH tunnel to be open")
+        }
+    }
+}
+
 def tunnelProcess
 
 task openTunnel {
@@ -28,7 +47,7 @@ task openTunnel {
             tunnelProcess = "cf ssh -N -L 63306:${getMysqlHost("album-service")}:3306 album-service".execute()
         }
 
-        sleep 5_000L
+        waitUntilSocketIsOpen(63306)
     }
 }
 
