@@ -4,6 +4,7 @@ buildscript {
         springVersion = "4.3.4.RELEASE"
         springCloudVersion = "Camden.SR3"
         springCloudSsoVersion = "1.1.0.RELEASE"
+        springCloudServicesVersion = "1.3.1.RELEASE"
         springSecurityVersion = "4.1.3.RELEASE"
 
         hibernateVersion = "5.0.11.Final"
@@ -75,7 +76,8 @@ task setupPcfEnv {
         [
             "cf create-service p-mysql 100mb movie-database",
             "cf create-service p-mysql 100mb album-database",
-            "cf create-service p-identity p-identity movie-fun-sso",
+            "cf create-service p-identity basic-sso movie-fun-sso",
+            "cf create-service p-service-registry standard movie-fun-registry",
         ].each { println it.execute().text }
     }
 }
